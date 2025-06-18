@@ -14,4 +14,5 @@ narrative_prompt = PromptTemplate.from_template(
     """
 )
 
-narrative_chain = LLMChain(llm=genai.GenerativeModel("gemini-narrator"), prompt=narrative_prompt)
+llm = genai.GenerativeModel(model_name="gemini-narrator")
+narrative_chain = LLMChain(llm=llm, prompt=narrative_prompt)
