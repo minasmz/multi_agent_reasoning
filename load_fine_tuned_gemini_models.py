@@ -1,4 +1,15 @@
 from langchain.tools import tool
+import google.generativeai as genai
+
+
+def call_gemini(model_name, image_path):
+    model = genai.GenerativeModel(model_name=model_name)
+    with open(image_path, "rb") as img_file:
+        response = model.generate_content([
+            {"type": "image", "data": img_file.read()},
+            {"type": "text", "text": f"Analyze the graph for {model_name.replace('_', ' ')}."}
+        ])
+    return response.text
 
 @tool
 def predict_hamiltonicity(image_path: str) -> str:
