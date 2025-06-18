@@ -1,0 +1,21 @@
+          [Graph Image]
+                ↓
+        ┌──────────────┐
+        │  VLM Loader  │  (load & preprocess image)
+        └──────┬───────┘
+               ↓
+  ┌──────────────────────────────┐
+  │ Reasoning Agents (Gemini models) │
+  └──────────────────────────────┘
+   ↓          ↓           ↓          ↓
+Hamilton    NodeCount   EdgeCount  Planarity
+   ↓          ↓           ↓          ↓
+         ┌───────────────────────┐
+         │ Planner / Aggregator │
+         └────────────┬──────────┘
+                      ↓
+           ┌──────────────────┐
+           │ Narrator (LLM)   │
+           └──────────────────┘
+                      ↓
+             [Final Explanation]
